@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivlionet</title>
+    <title>VivlioNet</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg vivlionet-nav px-4">
-
     <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Arnoldo_Mondadori_Editore_logo.svg/512px-Arnoldo_Mondadori_Editore_logo.svg.png" 
-             alt="Logo" height="34">
+             alt="Logo VivlioNet" height="34">
         <span class="brand-text ms-2">VIVLIONET</span>
     </a>
 
-    <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#vivlionetMenu">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#vivlionetMenu" aria-controls="vivlionetMenu" aria-expanded="false" aria-label="Apri menu">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -31,16 +30,16 @@
 
         <div class="flex-grow-1"></div>
 
-        <a href="#" class="nav-icon">
-            <img src="https://www.svgrepo.com/show/382106/user-profile.svg" height="26">
+        <a href="#" class="nav-icon" aria-label="Profilo">
+            <img src="https://www.svgrepo.com/show/382106/user-profile.svg" height="26" alt="Icona profilo">
         </a>
 
         <div class="separator mx-3"></div>
 
-        <form class="search-container">
-            <input type="text" class="search-input" placeholder="Cerca...">
-            <button class="search-btn" type="submit">
-                <img src="https://www.svgrepo.com/show/532555/search.svg" height="20">
+        <form class="search-container" role="search">
+            <input type="text" class="search-input" placeholder="Cerca..." aria-label="Cerca libri">
+            <button class="search-btn" type="submit" aria-label="Cerca">
+                <img src="https://www.svgrepo.com/show/532555/search.svg" height="20" alt="Icona ricerca">
             </button>
         </form>
     </div>
@@ -49,9 +48,10 @@
 <div class="container py-5">
     <h1 class="text-center mb-5">I nostri ultimi libri</h1>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        
         <div class="col">
             <div class="card h-100 libro-card">
-                <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT-4Lq-lamtVBzAp5D9TJQEBHDs5F309nZICWiOgskbJpUz0BuIkd78VT9Y2nN-sZdIq_puFVVeectIDhx-zb6QfFZWZ3jnJQ2J5l1YzbrQpiP7TVsjdrN-VA" class="card-img-top" alt="Libro 1">
+                <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT-4Lq-lamtVBzAp5D9TJQEBHDs5F309nZICWiOgskbJpUz0BuIkd78VT9Y2nN-sZdIq_puFVVeectIDhx-zb6QfFZWZ3jnJQ2J5l1YzbrQpiP7TVsjdrN-VA" class="card-img-top" alt="Le parole della pioggia">
                 <div class="card-body">
                     <h5 class="card-title">Le parole della pioggia</h5>
                     <p class="card-text">Romanzo</p>
@@ -59,9 +59,11 @@
                 </div>
             </div>
         </div>
+
+       
         <div class="col">
             <div class="card h-100 libro-card">
-                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRQXn47XCGDA8KIbikgkyzbnilXZXN4Pqxubup2GiwsJUjcsBjz" class="card-img-top" alt="Libro 2">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRQXn47XCGDA8KIbikgkyzbnilXZXN4Pqxubup2GiwsJUjcsBjz" class="card-img-top" alt="Il mio segreto">
                 <div class="card-body">
                     <h5 class="card-title">Il mio segreto</h5>
                     <p class="card-text">Narrativa</p>
@@ -69,9 +71,11 @@
                 </div>
             </div>
         </div>
+
+        
         <div class="col">
             <div class="card h-100 libro-card">
-                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQvrJwl2R3hCAjwumts05EDpAQyNVVdWjM4oPIfMeu-sq4RCmk7" class="card-img-top" alt="Libro 3">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQvrJwl2R3hCAjwumts05EDpAQyNVVdWjM4oPIfMeu-sq4RCmk7" class="card-img-top" alt="Il cerchio dei giorni">
                 <div class="card-body">
                     <h5 class="card-title">Il cerchio dei giorni</h5>
                     <p class="card-text">Romanzo</p>
@@ -80,6 +84,20 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<div class="scrollable-list px-4 py-3">
+  <ul>
+    <li>Giallo</li>
+    <li>Romanzo rosa</li>
+    <li>Horror</li>
+    <li>Fantasy</li>
+    <li>Fantascienza</li>
+    <li>Narrativa</li>
+    <li>Storici</li>
+    <li>Bambini</li>
+  </ul>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
