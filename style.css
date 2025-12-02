@@ -87,3 +87,32 @@
 .navbar-toggler-icon {
     filter: invert(30%) sepia(20%) saturate(300%) hue-rotate(350deg);
 }
+.libro-card {
+    background-color: #fdf9f4; /* crema chiara */
+    border: 1px solid #e3d6c7;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.libro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.libro-card .card-title {
+    color: #4a2e1f;
+    font-weight: 600;
+}
+
+.libro-card .card-text {
+    color: #6b4f3b;
+}
+
+.libro-card .btn-primary {
+    background-color: #7a5238;
+    border: none;
+}
+
+.libro-card .btn-primary:hover {
+    background-color: #4a2e1f;
+}
