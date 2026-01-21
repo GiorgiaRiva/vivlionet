@@ -104,5 +104,31 @@
   </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+fetch("http://localhost/vivlionet/backend/libri.php")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.querySelector(".row");
+    container.innerHTML = "";
+
+    data.forEach(libro => {
+      container.innerHTML += `
+        <div class="col">
+          <div class="card h-100 libro-card">
+            <img src="${libro.immagine}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">${libro.titolo}</h5>
+              <p class="card-text">${libro.genere}</p>
+              <a href="#" class="btn btn-primary">Acquista</a>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  });
+</script>
+
+
 </body>
 </html>
