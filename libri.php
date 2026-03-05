@@ -2,21 +2,17 @@
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 
-// Configurazione database
 $host = "localhost";
-$user = "root"; // di default XAMPP
-$pass = "";     // di default XAMPP
+$user = "root";
+$pass = "";     
 $dbname = "vivlionet_db";
 
-// Connessione
 $conn = new mysqli($host, $user, $pass, $dbname);
 
-// Controllo connessione
 if($conn->connect_error){
     die(json_encode(["error" => "Connessione al DB fallita: ".$conn->connect_error]));
 }
 
-// Query per prendere tutti i libri
 $sql = "SELECT * FROM libri";
 $result = $conn->query($sql);
 
