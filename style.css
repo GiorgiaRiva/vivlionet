@@ -1,3 +1,11 @@
+/* --- STILI GENERALI --- */
+body {
+    background-color: #fdf9f4; /* Sfondo leggero per tutto il sito */
+    color: #4a2e1f;
+    margin: 0;
+}
+
+/* --- NAVBAR VIVLIONET --- */
 .vivlionet-nav {
     background: #f6f0e8; 
     height: 70px;
@@ -17,7 +25,7 @@
 }
 
 .vivlionet-nav .nav-link {
-    color: #4a2e1f;
+    color: #4a2e1f !important; /* Forza il colore anche con Bootstrap */
     font-weight: 600;
     text-transform: uppercase;
     margin-right: 20px;
@@ -27,10 +35,11 @@
 
 .vivlionet-nav .nav-link:hover,
 .vivlionet-nav .nav-link:focus {
-    color: #7a5238; 
+    color: #7a5238 !important; 
     outline: none;
 }
 
+/* --- ICONE E SEPARATORI --- */
 .nav-icon img {
     filter: brightness(0) saturate(100%) sepia(40%) hue-rotate(350deg) saturate(300%);
     cursor: pointer;
@@ -49,6 +58,7 @@
     background: #c7b6a3;
 }
 
+/* --- BARRA DI RICERCA --- */
 .search-container {
     display: flex;
     align-items: center;
@@ -83,12 +93,7 @@
     transition: opacity 0.3s;
 }
 
-.search-btn img:hover,
-.search-btn img:focus {
-    opacity: 0.6;
-    outline: none;
-}
-
+/* --- MENU MOBILE (TOGGLER) --- */
 .navbar-toggler {
     border-color: #7e6a56;
 }
@@ -97,7 +102,7 @@
     filter: invert(30%) sepia(20%) saturate(300%) hue-rotate(350deg);
 }
 
-
+/* --- CARD DEI LIBRI --- */
 .libro-card {
     background-color: #fdf9f4;
     border: 1px solid #e3d6c7;
@@ -136,7 +141,7 @@
     background-color: #4a2e1f;
 }
 
-
+/* --- LISTA SCORREVOLE --- */
 .scrollable-list {
     width: 100%;
     overflow-x: auto;
@@ -147,10 +152,48 @@
 
 .scrollable-list li {
     display: inline-block;
+    margin-right: 40px;
+    font-weight: 500;
+    cursor: pointer; /* Fondamentale per far capire che è un tasto */
+    transition: all 0.3s ease;
+    color: #4a2e1f;
+}
+
+.scrollable-list li:hover {
+    color: #7a5238;
+    transform: scale(1.1);
+}
+
+.genere-icona {
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Classe per evidenziare il genere selezionato */
+.genere-attivo {
+    color: #7a5238 !important;
+    font-weight: 700 !important;
+    border-bottom: 2px solid #7a5238;
+}
+.scrollable-list ul {
+    list-style: none; /* Rimuove i pallini */
+    padding-left: 0;
+}
+
+.scrollable-list li {
+    display: inline-block;
     margin-right: 60px;
     font-weight: 500;
     cursor: pointer;
     transition: color 0.3s, transform 0.3s;
+}
+
+/* Stile per i link a, b, c dentro la lista */
+.scrollable-list li a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
 }
 
 .scrollable-list li:hover,
