@@ -2,15 +2,15 @@
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 
-$host = "localhost";
-$user = "root";
-$pass = "";     
-$dbname = "vivlionet_db";
+$host = 'columbina.vps.webdock.cloud';  // ← Indirizzo del VPS
+$user = 'username_db';                    // ← Username database
+$password = 'password_db';                // ← Password database
+$database = 'vivlionet';
 
-$conn = new mysqli($host, $user, $pass, $dbname);
+$conn = new mysqli($host, $user, $password, $database);
 
-if($conn->connect_error){
-    die(json_encode(["error" => "Connessione al DB fallita: ".$conn->connect_error]));
+if ($conn->connect_error) {
+    die("Connessione fallita: " . $conn->connect_error);
 }
 
 $sql = "SELECT * FROM libri";
