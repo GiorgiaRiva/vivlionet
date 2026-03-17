@@ -2,29 +2,31 @@
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 
-$host = 'columbina.vps.webdock.cloud';  // ← Indirizzo del VPS
-$user = 'username_db';                    // ← Username database
-$password = 'password_db';                // ← Password database
-$database = 'vivlionet';
+$host = "localhost";
+$user = "admin";
+$pass = "bVXvX7mubnmT"; // Di solito in XAMPP la password di root è vuota. Se hai messo "pippo", lasciala pure.
+$dbname = "vivlionet";
 
-$conn = new mysqli($host, $user, $password, $database);
+$conn = new mysqli($host, $user, $pass, $dbname);
 
-if ($conn->connect_error) {
-    die("Connessione fallita: " . $conn->connect_error);
+// Controllo connessione
+if($conn->connect_error){
+    die(json_encode(["error" => "Connessione al DB fallita: ".$conn->connect_error]));
 }
 
-$sql = "SELECT * FROM libri";
+$sql = "SELECT * FROM libro";
 $result = $conn->query($sql);
 
-$libri = [];
+$libri = []; // Inizializziamo un array vuoto
 
-if($result->num_rows > 0){
+if($result && $result->num_rows > 0){
     while($row = $result->fetch_assoc()){
-        $libri[] = $row;
+        $libri[] = $row; // Aggiunge ogni riga del database all'array
     }
 }
 
+// Invio dei dati in formato JSON
 echo json_encode($libri);
 
 $conn->close();
-
+?>

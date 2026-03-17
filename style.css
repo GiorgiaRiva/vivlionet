@@ -141,64 +141,9 @@ body {
     background-color: #4a2e1f;
 }
 
-/* --- LISTA SCORREVOLE --- */
-.scrollable-list {
-    width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch; 
-    padding: 10px 0;
-}
-
-.scrollable-list li {
-    display: inline-block;
-    margin-right: 40px;
-    font-weight: 500;
-    cursor: pointer; /* Fondamentale per far capire che è un tasto */
-    transition: all 0.3s ease;
-    color: #4a2e1f;
-}
-
-.scrollable-list li:hover {
-    color: #7a5238;
-    transform: scale(1.1);
-}
-
-.genere-icona {
-    height: 20px;
-    margin-right: 8px;
-    vertical-align: middle;
-}
-
 /* Classe per evidenziare il genere selezionato */
 .genere-attivo {
     color: #7a5238 !important;
     font-weight: 700 !important;
     border-bottom: 2px solid #7a5238;
-}
-.scrollable-list ul {
-    list-style: none; /* Rimuove i pallini */
-    padding-left: 0;
-}
-
-.scrollable-list li {
-    display: inline-block;
-    margin-right: 60px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: color 0.3s, transform 0.3s;
-}
-
-/* Stile per i link a, b, c dentro la lista */
-.scrollable-list li a {
-    text-decoration: none;
-    color: inherit;
-    display: inline-block;
-}
-
-.scrollable-list li:hover,
-.scrollable-list li:focus {
-    color: #7a5238;
-    transform: translateY(-2px);
-    outline: none;
 }
