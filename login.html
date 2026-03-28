@@ -1,0 +1,169 @@
+<div class="login-container">
+    <div class="libro-card login-card">
+        <div class="login-icon-header">
+            <img src="https://img.icons8.com/ios-filled/50/4a2e1f/book-shelf.png" alt="Logo VivlioNet">
+        </div>
+        
+        <h2 class="brand-text" style="text-align: center; margin-bottom: 1.5rem;">Accesso VivlioNet</h2>
+        
+        <form id="loginForm">
+            <div class="login-group">
+                <label for="email" class="login-label">Indirizzo Email</label>
+                <input type="email" id="email" name="email" class="search-input login-input" placeholder="tua@email.it" required autocomplete="email">
+            </div>
+            
+          <div class="login-group">
+    <label for="password" class="login-label">Password</label>
+    <div class="password-wrapper" style="position: relative;">
+        <input type="password" id="password" name="password" class="search-input login-input" placeholder="••••••••" required autocomplete="current-password">
+        <span id="togglePassword" class="password-toggle-icon">
+            <img src="https://img.icons8.com/ios-glyphs/24/4a2e1f/visible--v1.png" id="eyeIcon" alt="Mostra Password">
+        </span>
+    </div>
+</div>
+            <button type="submit" id="submitBtn" class="btn-primary login-btn">
+                <span class="btn-text">Entra in Biblioteca</span>
+                <span class="loader" style="display:none;">Caricamento...</span>
+            </button>
+
+            <div id="errorMessage" style="color: #d9534f; font-size: 0.85rem; margin-top: 10px; text-align: center; display: none;">
+                Email o password non corretti. Riprova.
+            </div>
+        </form>
+        
+        <div class="login-footer">
+            <p>Nuovo lettore? <a href="#" class="nav-link-simple">Registrati qui</a></p>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* INTEGRAZIONE CSS VIVLIONET */
+    .login-container {
+        min-height: calc(100vh - 100px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: #fdf9f4; /* Tuo sfondo */
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 400px;
+        padding: 40px !important;
+        box-shadow: 0 8px 20px rgba(74, 46, 31, 0.1);
+        background-color: #fdf9f4; /* Tuo sfondo card */
+    }
+
+    .login-icon-header {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .login-icon-header img {
+        filter: brightness(0) saturate(100%) sepia(40%) hue-rotate(350deg) saturate(300%);
+        width: 50px;
+        opacity: 0.8;
+    }
+
+    .login-group { margin-bottom: 20px; }
+
+    .login-label {
+        display: block;
+        font-weight: 600;
+        color: #4a2e1f;
+        margin-bottom: 8px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .login-input {
+        width: 100%;
+        background: #ede4d7 !important;
+        border: 1px solid #d8cabc !important;
+        border-radius: 8px !important;
+        padding: 12px !important;
+        color: #4a2e1f !important;
+        transition: all 0.3s;
+    }
+
+    .login-input:focus {
+        border-color: #7a5238 !important;
+        background: #f6f0e8 !important;
+        box-shadow: 0 0 0 3px rgba(122, 82, 56, 0.1);
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        border: none;
+        background-color: #7a5238; /* Tuo colore pulsante */
+        color: white;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    .login-btn:hover { background-color: #4a2e1f; }
+
+    .login-footer {
+        margin-top: 25px;
+        text-align: center;
+        border-top: 1px solid #e3d6c7;
+        padding-top: 20px;
+    }
+
+    .nav-link-simple {
+        color: #7a5238;
+        text-decoration: none;
+        font-weight: 600;
+    }
+</style>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Impedisce il ricaricamento della pagina
+
+        const btn = document.getElementById('submitBtn');
+        const btnText = btn.querySelector('.btn-text');
+        const loader = btn.querySelector('.loader');
+        const errorMsg = document.getElementById('errorMessage');
+
+        // Simulazione caricamento
+        btnText.style.display = 'none';
+        loader.style.display = 'inline';
+        errorMsg.style.display = 'none';
+
+        // Prendo i dati
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        console.log("Tentativo di accesso per:", email);
+
+        // Qui dovresti inserire la tua chiamata fetch() al server
+        // Esempio:
+        /*
+        fetch('/api/login', {
+            method: 'POST',
+            body: JSON.stringify({ email, password })
+        }).then(res => ...)
+        */
+
+        // Simuliamo una risposta del server dopo 1.5 secondi
+        setTimeout(() => {
+            if(email === "test@vivlionet.it" && password === "password123") {
+                alert("Accesso eseguito! Benvenuto in VivlioNet.");
+                window.location.href = "index.html"; // Reindirizza alla home
+            } else {
+                btnText.style.display = 'inline';
+                loader.style.display = 'none';
+                errorMsg.style.display = 'block';
+            }
+        }, 1500);
+    });
+</script>
