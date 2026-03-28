@@ -1,4 +1,3 @@
-/* --- STILI GENERALI --- */
 body {
     background-color: #fdf9f4; /* Sfondo leggero per tutto il sito */
     color: #4a2e1f;
@@ -146,4 +145,33 @@ body {
     color: #7a5238 !important;
     font-weight: 700 !important;
     border-bottom: 2px solid #7a5238;
+}
+.password-wrapper {
+    display: flex;
+    align-items: center;
+}
+/*paete per login*/
+.password-toggle-icon {
+    position: absolute;
+    right: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.password-toggle-icon:hover {
+    opacity: 1;
+}
+
+.password-toggle-icon img {
+    width: 20px;
+    /* Applichiamo il tuo filtro seppiato anche qui */
+    filter: brightness(0) saturate(100%) sepia(40%) hue-rotate(350deg) saturate(300%);
+}
+
+/* Evita che il testo della password finisca sotto l'icona */
+.login-input {
+    padding-right: 45px !important;
 }
