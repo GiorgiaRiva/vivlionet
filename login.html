@@ -1,169 +1,200 @@
-<div class="login-container">
-    <div class="libro-card login-card">
-        <div class="login-icon-header">
-            <img src="https://img.icons8.com/ios-filled/50/4a2e1f/book-shelf.png" alt="Logo VivlioNet">
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivlioNet - Login & Registrazione</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Layout a due pannelli come la tua immagine */
+        .auth-wrapper {
+            display: flex;
+            max-width: 900px;
+            min-height: 550px;
+            margin: 60px auto;
+            background: #fdf9f4;
+            border: 1px solid #e3d6c7;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(74, 46, 31, 0.1);
+        }
+
+        .auth-info-side {
+            flex: 1;
+            background-color: #f6f0e8;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 1px solid #e3d6c7;
+        }
+
+        .auth-form-side {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Stile input coerente con il tuo brand */
+        .vivlio-input {
+            background: #ede4d7;
+            border: 1px solid #d8cabc;
+            border-radius: 25px;
+            padding: 12px 20px;
+            width: 100%;
+            margin-bottom: 15px;
+            color: #4a2e1f;
+        }
+
+        .vivlio-input:focus {
+            border-color: #7a5238;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(122, 82, 56, 0.2);
+        }
+
+        .auth-btn {
+            background-color: #7a5238;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px;
+            font-weight: 700;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .auth-btn:hover {
+            background-color: #4a2e1f;
+            transform: translateY(-2px);
+        }
+
+        .toggle-link {
+            color: #7a5238;
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .auth-wrapper { flex-direction: column; margin: 20px; }
+            .auth-info-side { padding: 30px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg vivlionet-nav px-4">
+    <a class="navbar-brand d-flex align-items-center" href="xxx.html">
+        <img src="https://static.vecteezy.com/system/resources/previews/012/274/592/non_2x/floral-botanical-alphabet-vintage-hand-drawn-monogram-letter-v-letter-with-plants-and-flowers-lettering-isolated-on-white-vector.jpg" height="34">
+        <span class="brand-text ms-2">VIVLIONET</span>
+    </a>
+</nav>
+
+<div class="container">
+    <div class="auth-wrapper">
+        <div class="auth-info-side">
+            <h1 class="brand-text" id="sideTitle" style="font-size: 2.5rem;">BENTORNATO</h1>
+            <div style="width: 50px; height: 4px; background: #7a5238; margin: 20px 0;"></div>
+            <p id="sideDesc" style="color: #6b4f3b;">Accedi per immergerti nuovamente nelle tue letture preferite e gestire la tua libreria.</p>
         </div>
-        
-        <h2 class="brand-text" style="text-align: center; margin-bottom: 1.5rem;">Accesso VivlioNet</h2>
-        
-        <form id="loginForm">
-            <div class="login-group">
-                <label for="email" class="login-label">Indirizzo Email</label>
-                <input type="email" id="email" name="email" class="search-input login-input" placeholder="tua@email.it" required autocomplete="email">
-            </div>
-            
-          <div class="login-group">
-    <label for="password" class="login-label">Password</label>
-    <div class="password-wrapper" style="position: relative;">
-        <input type="password" id="password" name="password" class="search-input login-input" placeholder="••••••••" required autocomplete="current-password">
-        <span id="togglePassword" class="password-toggle-icon">
-            <img src="https://img.icons8.com/ios-glyphs/24/4a2e1f/visible--v1.png" id="eyeIcon" alt="Mostra Password">
-        </span>
+
+        <div class="auth-form-side">
+            <h2 class="brand-text mb-2" id="formTitle" style="font-size: 1.5rem;">Login Account</h2>
+            <p class="small mb-4 text-muted" id="formSub">Bentornato! Inserisci i tuoi dati.</p>
+
+            <form id="authForm">
+                <div id="nameGroup" style="display: none;">
+                    <label class="form-label small fw-bold">NOME COMPLETO</label>
+                    <input type="text" id="nome" class="vivlio-input" placeholder="Il tuo nome">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">EMAIL</label>
+                    <input type="email" id="email" class="vivlio-input" placeholder="esempio@mail.it" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">PASSWORD</label>
+                    <input type="password" id="password" class="vivlio-input" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="auth-btn mt-2">ACCEDI</button>
+
+                <p class="text-center mt-4 small">
+                    <span id="toggleText">Non hai un account?</span> 
+                    <a class="toggle-link" id="toggleAction">Registrati ora</a>
+                </p>
+            </form>
+        </div>
     </div>
 </div>
-            <button type="submit" id="submitBtn" class="btn-primary login-btn">
-                <span class="btn-text">Entra in Biblioteca</span>
-                <span class="loader" style="display:none;">Caricamento...</span>
-            </button>
-
-            <div id="errorMessage" style="color: #d9534f; font-size: 0.85rem; margin-top: 10px; text-align: center; display: none;">
-                Email o password non corretti. Riprova.
-            </div>
-        </form>
-        
-        <div class="login-footer">
-            <p>Nuovo lettore? <a href="#" class="nav-link-simple">Registrati qui</a></p>
-        </div>
-    </div>
-</div>
-
-<style>
-    /* INTEGRAZIONE CSS VIVLIONET */
-    .login-container {
-        min-height: calc(100vh - 100px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        background-color: #fdf9f4; /* Tuo sfondo */
-    }
-
-    .login-card {
-        width: 100%;
-        max-width: 400px;
-        padding: 40px !important;
-        box-shadow: 0 8px 20px rgba(74, 46, 31, 0.1);
-        background-color: #fdf9f4; /* Tuo sfondo card */
-    }
-
-    .login-icon-header {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .login-icon-header img {
-        filter: brightness(0) saturate(100%) sepia(40%) hue-rotate(350deg) saturate(300%);
-        width: 50px;
-        opacity: 0.8;
-    }
-
-    .login-group { margin-bottom: 20px; }
-
-    .login-label {
-        display: block;
-        font-weight: 600;
-        color: #4a2e1f;
-        margin-bottom: 8px;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .login-input {
-        width: 100%;
-        background: #ede4d7 !important;
-        border: 1px solid #d8cabc !important;
-        border-radius: 8px !important;
-        padding: 12px !important;
-        color: #4a2e1f !important;
-        transition: all 0.3s;
-    }
-
-    .login-input:focus {
-        border-color: #7a5238 !important;
-        background: #f6f0e8 !important;
-        box-shadow: 0 0 0 3px rgba(122, 82, 56, 0.1);
-    }
-
-    .login-btn {
-        width: 100%;
-        padding: 14px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        cursor: pointer;
-        border: none;
-        background-color: #7a5238; /* Tuo colore pulsante */
-        color: white;
-        border-radius: 5px;
-        transition: background 0.3s;
-    }
-
-    .login-btn:hover { background-color: #4a2e1f; }
-
-    .login-footer {
-        margin-top: 25px;
-        text-align: center;
-        border-top: 1px solid #e3d6c7;
-        padding-top: 20px;
-    }
-
-    .nav-link-simple {
-        color: #7a5238;
-        text-decoration: none;
-        font-weight: 600;
-    }
-</style>
 
 <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Impedisce il ricaricamento della pagina
+    let isLogin = true;
+    const form = document.getElementById('authForm');
+    const toggleAction = document.getElementById('toggleAction');
 
-        const btn = document.getElementById('submitBtn');
-        const btnText = btn.querySelector('.btn-text');
-        const loader = btn.querySelector('.loader');
-        const errorMsg = document.getElementById('errorMessage');
-
-        // Simulazione caricamento
-        btnText.style.display = 'none';
-        loader.style.display = 'inline';
-        errorMsg.style.display = 'none';
-
-        // Prendo i dati
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        console.log("Tentativo di accesso per:", email);
-
-        // Qui dovresti inserire la tua chiamata fetch() al server
-        // Esempio:
-        /*
-        fetch('/api/login', {
-            method: 'POST',
-            body: JSON.stringify({ email, password })
-        }).then(res => ...)
-        */
-
-        // Simuliamo una risposta del server dopo 1.5 secondi
-        setTimeout(() => {
-            if(email === "test@vivlionet.it" && password === "password123") {
-                alert("Accesso eseguito! Benvenuto in VivlioNet.");
-                window.location.href = "index.html"; // Reindirizza alla home
-            } else {
-                btnText.style.display = 'inline';
-                loader.style.display = 'none';
-                errorMsg.style.display = 'block';
-            }
-        }, 1500);
+    // Cambia tra Login e Registrazione
+    toggleAction.addEventListener('click', () => {
+        isLogin = !isLogin;
+        document.getElementById('sideTitle').innerText = isLogin ? "BENTORNATO" : "BENVENUTO";
+        document.getElementById('sideDesc').innerText = isLogin ? "Accedi per immergerti nuovamente nelle tue letture." : "Crea un profilo per iniziare a collezionare i tuoi libri preferiti.";
+        document.getElementById('formTitle').innerText = isLogin ? "Login Account" : "Crea Account";
+        document.getElementById('formSub').innerText = isLogin ? "Bentornato! Inserisci i tuoi dati." : "Compila i campi per registrarti.";
+        document.getElementById('nameGroup').style.display = isLogin ? "none" : "block";
+        document.querySelector('.auth-btn').innerText = isLogin ? "ACCEDI" : "REGISTRATI";
+        document.getElementById('toggleText').innerText = isLogin ? "Non hai un account?" : "Hai già un account?";
+        toggleAction.innerText = isLogin ? "Registrati ora" : "Accedi qui";
     });
+
+    // Invio dati al PHP
+    form.onsubmit = async (e) => {
+        e.preventDefault();
+
+const scriptPhp = isLogin 
+    ? "login_process.php" 
+    : "register.php";
+
+        const payload = {
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value
+        };
+        
+        if (!isLogin) {
+            payload.nome = document.getElementById('nome').value;
+        }
+
+        try {
+            const response = await fetch(scriptPhp, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) throw new Error("File PHP non trovato o errore server.");
+
+            const data = await response.json();
+
+            if (data.success) {
+                if (isLogin) {
+                    alert("Benvenuto, " + data.nome + "!");
+                    window.location.href = "xxx.html";
+                } else {
+                    alert("Registrazione completata! Ora puoi accedere.");
+                    toggleAction.click(); // Ritorna automaticamente al Login
+                }
+            } else {
+                alert("Errore: " + data.message);
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Errore tecnico: Impossibile collegarsi al database. Controlla che i file PHP siano su Webdock nella stessa cartella.");
+        }
+    };
 </script>
+
+</body>
+</html>

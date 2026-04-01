@@ -1,3 +1,4 @@
+/* --- STILI GENERALI --- */
 body {
     background-color: #fdf9f4; /* Sfondo leggero per tutto il sito */
     color: #4a2e1f;
@@ -146,32 +147,64 @@ body {
     font-weight: 700 !important;
     border-bottom: 2px solid #7a5238;
 }
-.password-wrapper {
-    display: flex;
-    align-items: center;
-}
-/*paete per login*/
-.password-toggle-icon {
-    position: absolute;
-    right: 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    opacity: 0.6;
-    transition: opacity 0.3s;
+
+/* --- SEZIONE CONTATTI --- */
+.contact-section {
+    background-color: #f6f0e8; 
+    border-top: 1px solid #e3d6c7;
+    color: #4a2e1f;
 }
 
-.password-toggle-icon:hover {
-    opacity: 1;
+/* Stile delle etichette del form */
+.custom-form .form-label {
+    margin-bottom: 0.2rem;
+    font-size: 0.85rem;
+    color: #4a2e1f;
 }
 
-.password-toggle-icon img {
-    width: 20px;
-    /* Applichiamo il tuo filtro seppiato anche qui */
-    filter: brightness(0) saturate(100%) sepia(40%) hue-rotate(350deg) saturate(300%);
+/* Campi di input: sfondo trasparente, linea sotto colore marrone chiaro */
+.custom-form .custom-input {
+    background-color: transparent !important;
+    border: none;
+    border-bottom: 1px solid #c7b6a3; 
+    border-radius: 0;
+    color: #4a2e1f !important;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: none !important;
+    transition: border-color 0.3s;
 }
 
-/* Evita che il testo della password finisca sotto l'icona */
-.login-input {
-    padding-right: 45px !important;
+/* Effetto quando si clicca sul campo per scrivere */
+.custom-form .custom-input:focus {
+    border-bottom: 2px solid #7a5238;
+    outline: none;
+}
+
+/* Colore nero per le opzioni della tendina */
+.custom-form select.custom-input option {
+    color: #000; 
+}
+
+/* Freccetta MARRONE per i menu a tendina */
+.custom-form select.custom-input {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%234a2e1f' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+}
+
+/* Stile della checkbox quadrata */
+.custom-form .form-check-input {
+    background-color: transparent;
+    border-color: #7a5238;
+}
+.custom-form .form-check-input:checked {
+    background-color: #7a5238;
+    border-color: #7a5238;
+}
+
+/* --- TRASFORMA IL BOTTONE BLU IN MARRONE --- */
+.contact-section .btn-primary {
+    background-color: #7a5238;
+    border: none;
+    color: #fff;
+    transition: background-color 0.3s;
 }
