@@ -1,1 +1,86 @@
+php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, DELETE");
+
+$host = "localhost";
+$user = "admin";
+$pass = "bVXvX7mubnmT"; 
+$dbname = "vivlionet";
+
+// Connessione al DB
+$conn = new mysqli($host, $user, $pass, $dbname);
+if($conn->connect_error){
+    die(json_encode(["success" => false, "message" => "Connessione fallita: " . $conn->connect_error]));
+}
+
+$method = $_SERVER['REQUEST_METHOD'];
+
+// 1. GESTISCI LA RICHIESTA GET (Leggi il carrello)
+if ($method === 'GET') {
+    if(!isset($_GET['token'])) {
+        echo json_encode(["success" => false, "message" => "Token utente mancante"]);
+        exit;
+    }
+    $token = $conn->real_escape_string($_GET['token']);
+    
+    $sql = "SELECT * FROM carrello WHERE token_utente = '$token'";
+    $result = $conn->query($sql);
+    
+    $carrello = [];
+    if($result && $result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            // Trasformo il prezzo in numero per comodità del frontend
+            $row['prezzo'] = (float)$row['prezzo']; 
+            $carrello[] = $row;
+        }
+    }
+    echo json_encode(["success" => true, "carrello" => $carrello]);
+}
+
+// 2. GESTISCI LA RICHIESTA POST (Aggiungi al carrello)
+elseif ($method === 'POST') {
+    $input = file_get_contents("php://input");
+    $data = json_decode($input, true);
+    
+    if(isset($data['token'], $data['titolo'], $data['prezzo'])) {
+        $token = $conn->real_escape_string($data['token']);
+        $titolo = $conn->real_escape_string($data['titolo']);
+        $prezzo = (float)$data['prezzo'];
+        
+        $sql = "INSERT INTO carrello (token_utente, titolo, prezzo) VALUES ('$token', '$titolo', $prezzo)";
+        if($conn->query($sql)){
+            echo json_encode(["success" => true, "message" => "Libro aggiunto"]);
+        } else {
+            echo json_encode(["success" => false, "message" => "Errore DB: " . $conn->error]);
+        }
+    } else {
+        echo json_encode(["success" => false, "message" => "Dati incompleti"]);
+    }
+}
+
+// 3. GESTISCI LA RICHIESTA DELETE (Rimuovi dal carrello)
+elseif ($method === 'DELETE') {
+    $input = file_get_contents("php://input");
+    $data = json_decode($input, true);
+    
+    if(isset($data['id_record'])) {
+        $id = (int)$data['id_record'];
+        
+        $sql = "DELETE FROM carrello WHERE id = $id";
+        if($conn->query($sql)){
+            echo json_encode(["success" => true, "message" => "Libro rimosso"]);
+        } else {
+            echo json_encode(["success" => false, "message" => "Errore DB: " . $conn->error]);
+        }
+    }
+}
+
+$conn->close();
+?>
+
+
+<script>
 
